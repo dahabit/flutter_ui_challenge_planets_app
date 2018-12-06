@@ -12,7 +12,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([ DeviceOrientation.portraitUp ]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       home: HomePage(),
     );
@@ -53,7 +53,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
-
+    print(screenSize.height);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -77,14 +77,17 @@ class HomePageState extends State<HomePage> {
             child: Stack(
               children: <Widget>[
                 Align(
-                  alignment: Alignment.topCenter,
+                  alignment: Alignment.center,
                   child: RotatedBox(
                     quarterTurns: 1,
-                    child: Container(
-                      width: 400.0,
-                      padding: EdgeInsets.only(left: 50.0),
-                      child: PlanetName(
-                        name: _planets[_currentPlanetIndex].name.toUpperCase(),
+                    child: Padding(
+                      padding: EdgeInsets.only(right: 80.0),
+                      child: Container(
+                        width: 400.0,
+                        child: PlanetName(
+                          name:
+                              _planets[_currentPlanetIndex].name.toUpperCase(),
+                        ),
                       ),
                     ),
                   ),
